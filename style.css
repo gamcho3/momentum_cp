@@ -32,7 +32,19 @@ body{
 
 /*gretting menu*/
 .gretting{
+    margin-bottom: 50px;
+}
+
+.grettingForm{
+    display:none;
+    
+}
+
+.gretting span{
     font-size:3rem;
+    animation-duration: 0.5s;
+    animation-name:showMenu;
+    font-weight: 600;
 }
 
 .inputGretting{
@@ -43,7 +55,6 @@ body{
     color:#fff;
     text-align: center;
     font-size:3rem;
-    margin-bottom: 50px;
     width:350px;
 }
 
@@ -54,6 +65,7 @@ body{
 
 .showGretting{
     display:block;
+    
 }
 
 /*main focus*/

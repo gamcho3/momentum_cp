@@ -7,6 +7,7 @@ const gretting = document.querySelector('.gretting');
 const grettingForm = document.getElementById('grettingForm');
 const grettinginput = document.querySelector('.inputGretting');
 
+
 // main time
 function realtime() {
     const time = new Date();
@@ -16,17 +17,48 @@ function realtime() {
 
 }
 
+//main gretting
+
+function loadName() {
+    const currentName = localStorage.getItem('currentuser');
+    if (currentName === null) {
+        askName();
+    } else {
+        showName(currentName);
+    }
+}
+
+function askName() {
+    grettingForm.classList.add('showGretting');
+    grettingForm.addEventListener("submit", submitName);
+}
 
 grettingForm.addEventListener("submit", submitName);
 
 function submitName(event) {
     const currentValue = grettinginput.value;
     setName(currentValue);
+    showName(currentValue);
 }
 
 function setName(name) {
     localStorage.setItem('currentuser', name);
 }
+
+function showName(name) {
+    grettingForm.classList.remove('showGretting');
+    const time = new Date();
+    const hour = time.getHours();
+    if (6 < hour < 12) {
+        gretting.innerHTML = `<span>Good morning ${name}</span>`;
+    } else if (11 < hour < 18) {
+        gretting.innerHTML = `<span>Good afternoon ${name}</span>`;
+    } else {
+        gretting.innerHTML = `<span>Good evening ${name}</span>`;
+    }
+}
+
+
 
 
 //show todo-menu
@@ -36,7 +68,7 @@ todoBtn.addEventListener('click', () => {
 
 
 function init() {
-
+    loadName();
     realtime();
     setInterval(realtime, 60000);
 }
