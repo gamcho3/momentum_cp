@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+*{
+    margin:0;
+}
+
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    position: relative;
+    background-color: lightblue;
+    font-family: 'Roboto', sans-serif;
+    color:#FFF;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.clock{
+    
+    font-size: 10rem;
+}
+
+
+/*gretting menu*/
+.gretting{
+    font-size:3rem;
+}
+
+.inputGretting{
+    background: transparent;
+    border:0;
+    border-bottom:3px solid #fff;
+    padding:10px;
+    color:#fff;
+    text-align: center;
+    font-size:3rem;
+    margin-bottom: 50px;
+    width:350px;
+}
+
+.inputGretting::placeholder{
+    color:#FFF;
+    opacity: 0.7;
+}
+
+.showGretting{
+    display:block;
+}
+
+/*main focus*/
+
+.focus{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.enterFocus{
+    font-size:2rem;
+    width:480px;
+    background: transparent;
+    border:0;
+    border-bottom:3px solid #fff;
+    padding:10px;
+    text-align: center;
+    color:#fff;
+
+}
+
+
+
+.search{
+    position:absolute;
+    top:10px;
+    left:15px;
+}
+
+.weather{
+    position:absolute;
+    right:15px;
+    top:10px;
+}
+
+.todo{
+    position: absolute;
+    right:15px;
+    bottom:10px;
+    
+}
+
+/*  todo menu and button */
+.todoBtn{
+    background: transparent;
+    border:0;
+    color:#fff;
+    cursor:pointer;
+}
+
+
+@keyframes closeMenu{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.todoMenu{
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    right:30px;
+    bottom:40px;
+    background-color: #fff;
+    width:300px;
+    height:250px;
+    border-radius: 10px;
+    opacity: 0;
+    animation-duration: 0.5s;
+    animation-name:closeMenu;
+}
+
+@keyframes showMenu{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+.showtodoMenu{
+    opacity: 1;
+    animation-duration: 0.5s;
+    animation-name:showMenu;
+    
+}
+
+.todoMenu span{
+    color:black;
+    margin:10px;
+}
+
+.todoMenu button{
+    background-color: darkgoldenrod;
+    border:0;
+    border-radius: 15px;
+    padding:10px 15px; 
+    color:black;
+    cursor:pointer;
+}
+
+/*remove outline*/
+.todoMenu button:focus,
+.enterFocus:focus,
+.inputGretting:focus,
+.todoBtn:focus{
+    outline: none;
+}
