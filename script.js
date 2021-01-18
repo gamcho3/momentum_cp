@@ -6,7 +6,10 @@ const todoMenu = document.querySelector('.todoMenu');
 const gretting = document.querySelector('.gretting');
 const grettingForm = document.getElementById('grettingForm');
 const grettinginput = document.querySelector('.inputGretting');
-
+//search
+const formSearch = document.querySelector('.formSearch');
+const iconSearch = document.querySelector('.iconSearch');
+const inputSearch = document.querySelector('.inputSearch');
 
 // main time
 function realtime() {
@@ -59,12 +62,25 @@ function showName(name) {
 }
 
 
-
-
 //show todo-menu
 todoBtn.addEventListener('click', () => {
     todoMenu.classList.toggle('showtodoMenu');
 });
+
+//search menu
+formSearch.addEventListener('submit', engine)
+
+function engine(event) {
+    event.preventDefault();
+    const word = inputSearch.value;
+    window.location.href = `https://www.google.com/search?q=${word}`;
+}
+
+
+
+
+
+
 
 
 function init() {

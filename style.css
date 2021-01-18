@@ -89,11 +89,7 @@ body{
 
 
 
-.search{
-    position:absolute;
-    top:10px;
-    left:15px;
-}
+
 
 .weather{
     position:absolute;
@@ -174,10 +170,37 @@ body{
     cursor:pointer;
 }
 
+/*search menu*/
+
+.search{
+    position:absolute;
+    top:10px;
+    left:15px;
+    display: flex;
+    align-items: center;
+}
+
+.inputSearch{
+    color:#fff;
+    background: transparent;
+    border:0;
+    border-radius: 1px;
+    border-bottom: 2px solid #fff;
+    margin-left: 10px;
+    padding :5px;
+}
+
+.iconSearch{
+    margin-left: 10px;
+    cursor:pointer;
+}
+
+
 /*remove outline*/
 .todoMenu button:focus,
 .enterFocus:focus,
 .inputGretting:focus,
+.inputSearch:focus,
 .todoBtn:focus{
     outline: none;
 }
