@@ -16,6 +16,7 @@ const todoForm = document.querySelector('.todoForm');
 const todoInput = document.querySelector('.todoInput');
 const ulTodo = document.querySelector('.ulTodo');
 let toDos = [];
+
 // main time
 function realtime() {
     const time = new Date();
@@ -25,8 +26,9 @@ function realtime() {
 
 }
 
-//main gretting
+//main gretting name
 
+//load from localstorage
 function loadName() {
     const currentName = localStorage.getItem('currentuser');
     if (currentName === null) {
@@ -36,6 +38,7 @@ function loadName() {
     }
 }
 
+// ask name - first screen
 function askName() {
     grettingForm.classList.add('showGretting');
     grettingForm.addEventListener("submit", submitName);
@@ -43,16 +46,19 @@ function askName() {
 
 grettingForm.addEventListener("submit", submitName);
 
+
 function submitName(event) {
     const currentValue = grettinginput.value;
     setName(currentValue);
     showName(currentValue);
 }
 
+//set current name
 function setName(name) {
     localStorage.setItem('currentuser', name);
 }
 
+//show my name
 function showName(name) {
     grettingForm.classList.remove('showGretting');
     const time = new Date();
@@ -71,6 +77,7 @@ function showName(name) {
 
 
 //search menu
+
 formSearch.addEventListener('submit', engine)
 
 function engine(event) {
