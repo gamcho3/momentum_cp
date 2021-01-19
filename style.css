@@ -97,6 +97,10 @@ body{
     top:10px;
 }
 
+
+
+/*  todo menu and button */
+
 .todo{
     position: absolute;
     right:15px;
@@ -104,7 +108,6 @@ body{
     
 }
 
-/*  todo menu and button */
 .todoBtn{
     background: transparent;
     border:0;
@@ -122,14 +125,30 @@ body{
     }
 }
 
-.todoMenu{
+.todoContainer{
     position:absolute;
+    right:30px;
+    bottom:40px;
+}
+
+.todoInput{
+    position:absolute;
+    bottom: 10px;
+    left:0;
+    right:0;
+    padding:5px 20px;
+    width:82%;
+    border:0;
+    font-size:15px;
+    display:none;
+}
+
+.todoMenu{
+    position:relative;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    right:30px;
-    bottom:40px;
     background-color: #fff;
     width:300px;
     height:250px;
@@ -137,6 +156,7 @@ body{
     opacity: 0;
     animation-duration: 0.5s;
     animation-name:closeMenu;
+    color:black;
 }
 
 @keyframes showMenu{
@@ -156,19 +176,34 @@ body{
     
 }
 
+.showtodoList{
+    display:flex;
+    align-items: flex-start;
+    height:auto;
+    justify-content: space-between;
+    
+}
+
+
 .todoMenu span{
     color:black;
     margin:10px;
 }
 
-.todoMenu button{
+.newTodo{
     background-color: darkgoldenrod;
     border:0;
     border-radius: 15px;
     padding:10px 15px; 
     color:black;
     cursor:pointer;
+    display:block;
 }
+
+
+
+
+
 
 /*search menu*/
 
@@ -201,6 +236,7 @@ body{
 .enterFocus:focus,
 .inputGretting:focus,
 .inputSearch:focus,
+.todoInput:focus,
 .todoBtn:focus{
     outline: none;
 }
