@@ -1,30 +1,23 @@
-const clock = document.querySelector('.clock');
+
 //show todo
 const todoBtn = document.querySelector('.todoBtn');
 const todoMenu = document.querySelector('.todoMenu');
-//gretting
-const gretting = document.querySelector('.gretting');
-const grettingForm = document.getElementById('grettingForm');
-const grettinginput = document.querySelector('.inputGretting');
+
 //search
 const formSearch = document.querySelector('.formSearch');
 const iconSearch = document.querySelector('.iconSearch');
 const inputSearch = document.querySelector('.inputSearch');
+
 //make todo
 const newTodo = document.querySelector('.newTodo');
 const todoForm = document.querySelector('.todoForm');
 const todoInput = document.querySelector('.todoInput');
 const ulTodo = document.querySelector('.ulTodo');
+const todoList = document.querySelector('.todoList');
+const todoInstruction = document.querySelector(".todoInstruction");
 let toDos = [];
 
-// main time
-function realtime() {
-    const time = new Date();
-    const minutes = time.getMinutes();
-    const hour = time.getHours();
-    clock.innerHTML = `${hour}:${minutes < 10 ? `0${minutes}` : minutes} `;
 
-}
 
 //main gretting name
 
@@ -38,40 +31,6 @@ function loadName() {
     }
 }
 
-// ask name - first screen
-function askName() {
-    grettingForm.classList.add('showGretting');
-    grettingForm.addEventListener("submit", submitName);
-}
-
-grettingForm.addEventListener("submit", submitName);
-
-
-function submitName(event) {
-    const currentValue = grettinginput.value;
-    setName(currentValue);
-    showName(currentValue);
-}
-
-//set current name
-function setName(name) {
-    localStorage.setItem('currentuser', name);
-}
-
-//show my name
-function showName(name) {
-    grettingForm.classList.remove('showGretting');
-    const time = new Date();
-    const hour = time.getHours();
-
-    if (6 < hour && hour < 12) {
-        gretting.innerHTML = `<span>Good morning ${name}</span>`;
-    } else if (11 < hour && hour < 18) {
-        gretting.innerHTML = `<span>Good afternoon ${name}</span>`;
-    } else {
-        gretting.innerHTML = `<span>Good evening ${name}</span>`;
-    }
-}
 
 
 
@@ -93,7 +52,7 @@ todoBtn.addEventListener('click', () => {
     todoMenu.classList.toggle('showtodoMenu');
 
 });
-
+//new todo 버튼 사라지게 하기
 newTodo.addEventListener('click', () => {
     todoInput.style.display = 'block';
     newTodo.style.display = 'none';
@@ -106,22 +65,36 @@ function handleSubmit(event) {
     event.preventDefault();
     const currentTodo = todoInput.value;
     showTodos(currentTodo);
+    todoInput.value = '';
 }
 
 function showTodos(element) {
+    todoInstruction.classList.remove('showInstruction');
+    const ul = document.createElement("ul");
+    const li = document.createElement("li");
 
-    todoMenu.innerHTML = `
-    <span><input type="checkbox">${element}</span><button>cencel</button>
-    `;
+    ul.appendChild(li);
+    li.innerHTML = `<input type="checkbox">${element}<button>del</button>`;
+    todoList.appendChild(ul);
 
+
+    const newId = toDos.length + 1;
+    li.id = newId;
+    const todoObj = {
+        Do: element,
+        id: newId
+    }
+    toDos.push(todoObj);
+    console.log(toDos);
 }
 
 
 
 function init() {
+
     loadName();
-    realtime();
-    setInterval(realtime, 60000);
+
+
 }
 
 init();

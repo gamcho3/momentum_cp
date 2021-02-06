@@ -3,6 +3,7 @@
 
 *{
     margin:0;
+    box-sizing: border-box;
 }
 
 body{
@@ -27,6 +28,7 @@ body{
 .clock{
     
     font-size: 10rem;
+    
 }
 
 
@@ -70,10 +72,15 @@ body{
 
 /*main focus*/
 
-.focus{
+.focusContainer{
     font-size:2rem;
     margin-bottom:10px;
+    display: flex;
+    flex-direction: column;
+    transition: display 0.3s ease;
 }
+
+
 
 .enterFocus{
     font-size:2rem;
@@ -87,6 +94,9 @@ body{
 
 }
 
+.focusEl i {
+cursor:pointer;
+}
 
 
 
@@ -131,14 +141,22 @@ body{
     bottom:40px;
 }
 
-.todoInput{
+.todoInputContainer{
     position:absolute;
     bottom: 10px;
     left:0;
     right:0;
-    padding:5px 20px;
-    width:82%;
+    width:100%;
+    display:flex;
+   justify-content:flex-start;
+}
+
+
+.todoInput{
+    width:280px;
+    margin:0;
     border:0;
+    padding:5px 10px;
     font-size:15px;
     display:none;
 }
@@ -157,6 +175,24 @@ body{
     animation-duration: 0.5s;
     animation-name:closeMenu;
     color:black;
+}
+
+.todoInstruction{
+    display:none;
+    flex-direction: column;
+}
+
+.showInstruction{
+    display:flex;
+}
+
+.todoList{
+    display: flex;
+    flex-direction: column;
+}
+
+.todoList ul{
+    list-style-type: none;
 }
 
 @keyframes showMenu{
@@ -179,7 +215,7 @@ body{
 .showtodoList{
     display:flex;
     align-items: flex-start;
-    height:auto;
+    
     justify-content: space-between;
     
 }
